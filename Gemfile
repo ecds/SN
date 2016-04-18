@@ -8,6 +8,7 @@ gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
 gem 'rename'
+gem 'paperclip'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
