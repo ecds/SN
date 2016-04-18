@@ -41,6 +41,31 @@ ActiveAdmin.register Priesthood do
      f.actions
      end
 
+  show do 
+      attributes_table do
+        row :identification
+        row :name
+        row :title
+        row :deity_identification
+        row :deity
+        row :duration
+        row :att_honor
+        row :cer_ritual
+        row :comments
+        row :role
+        row :location
+        row :created_at
+        row :updated_at
+        end
+    panel "Inscriptions" do
+      attributes_table_for priesthood.groupings do
+        row :inscription_id
 
+        end
+        
+      
+      end
+      active_admin_comments
+    end
 
 end
