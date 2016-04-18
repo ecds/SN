@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  marker_name: MyString
+  marker_kind: MyString
+  site_id: 
+
+two:
+  marker_name: MyString
+  marker_kind: MyString
+  site_id: 

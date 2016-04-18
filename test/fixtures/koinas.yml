@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_id: 
+  inscription_id: 
+  membercount: 1
+  activities: MyString
+  comments: MyText
+
+two:
+  site_id: 
+  inscription_id: 
+  membercount: 1
+  activities: MyString
+  comments: MyText

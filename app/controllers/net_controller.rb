@@ -1,0 +1,2 @@
+class NetController < ApplicationController
+end

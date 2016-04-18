@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  marker_id: MyString
+  type: 
+  site_id: 
+
+two:
+  marker_id: MyString
+  type: 
+  site_id: 

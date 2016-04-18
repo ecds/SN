@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rolenumber: MyString
+  individual_id: 
+  title: MyString
+  certainty: 9.99
+  comments: MyText
+
+two:
+  rolenumber: MyString
+  individual_id: 
+  title: MyString
+  certainty: 9.99
+  comments: MyText
