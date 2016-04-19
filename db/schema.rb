@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418150023) do
+ActiveRecord::Schema.define(version: 20160419155734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20160418150023) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "argonautica_people", force: :cascade do |t|
+    t.string   "name"
+    t.string   "tribe"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "origin_id"
+  end
 
   create_table "groupings", force: :cascade do |t|
     t.integer  "inscription_id"
@@ -126,6 +134,24 @@ ActiveRecord::Schema.define(version: 20160418150023) do
 
   add_index "markers", ["site_id"], name: "index_markers_on_site_id", using: :btree
 
+  create_table "places_referenceds", force: :cascade do |t|
+    t.integer  "place_referenced_id"
+    t.string   "line_number"
+    t.string   "type_of_reference"
+    t.integer  "referenced_by_id"
+    t.integer  "previous_place_id"
+    t.integer  "next_place_id"
+    t.string   "ritual"
+    t.string   "ritual_deity"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "places_referenceds", ["next_place_id"], name: "index_places_referenceds_on_next_place_id", using: :btree
+  add_index "places_referenceds", ["place_referenced_id"], name: "index_places_referenceds_on_place_referenced_id", using: :btree
+  add_index "places_referenceds", ["previous_place_id"], name: "index_places_referenceds_on_previous_place_id", using: :btree
+  add_index "places_referenceds", ["referenced_by_id"], name: "index_places_referenceds_on_referenced_by_id", using: :btree
+
   create_table "priesthoods", force: :cascade do |t|
     t.string   "identification"
     t.string   "name"
@@ -175,6 +201,23 @@ ActiveRecord::Schema.define(version: 20160418150023) do
     t.datetime "updated_at",                           null: false
   end
 
+  create_table "stops", force: :cascade do |t|
+    t.integer  "place_of_stop_id"
+    t.integer  "previous_place_id"
+    t.integer  "next_place_id"
+    t.string   "type_of_stop"
+    t.string   "line_number"
+    t.string   "ritual"
+    t.string   "ritual_deity"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "stops", ["next_place_id"], name: "index_stops_on_next_place_id", using: :btree
+  add_index "stops", ["place_of_stop_id"], name: "index_stops_on_place_of_stop_id", using: :btree
+  add_index "stops", ["previous_place_id"], name: "index_stops_on_previous_place_id", using: :btree
+
+  add_foreign_key "argonautica_people", "sites", column: "origin_id"
   add_foreign_key "groupings", "inscriptions"
   add_foreign_key "groupings", "priesthoods"
   add_foreign_key "individuals", "inscriptions"
@@ -185,4 +228,7 @@ ActiveRecord::Schema.define(version: 20160418150023) do
   add_foreign_key "markers", "sites"
   add_foreign_key "priesthoods", "roles"
   add_foreign_key "roles", "individuals"
+  add_foreign_key "stops", "sites", column: "next_place_id"
+  add_foreign_key "stops", "sites", column: "place_of_stop_id"
+  add_foreign_key "stops", "sites", column: "previous_place_id"
 end

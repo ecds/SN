@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Argonautica People</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Origin</th>
+      <th>Tribe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @argonautica_people.each do |argonautica_person| %>
+      <tr>
+        <td><%= argonautica_person.name %></td>
+        <td><%= argonautica_person.origin %></td>
+        <td><%= argonautica_person.tribe %></td>
+        <td><%= link_to 'Show', argonautica_person %></td>
+        <td><%= link_to 'Edit', edit_argonautica_person_path(argonautica_person) %></td>
+        <td><%= link_to 'Destroy', argonautica_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Argonautica person', new_argonautica_person_path %>

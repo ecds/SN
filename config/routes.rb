@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :places_referenceds
+  resources :stops
+  resources :argonautica_people
   resources :inscription, :site, :marker, :koina, :priesthood, :role, :individual, :groupings
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

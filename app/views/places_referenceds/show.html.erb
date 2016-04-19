@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Line number:</strong>
+  <%= @places_referenced.line_number %>
+</p>
+
+<p>
+  <strong>Type of reference:</strong>
+  <%= @places_referenced.type_of_reference %>
+</p>
+
+<p>
+  <strong>Ritual:</strong>
+  <%= @places_referenced.ritual %>
+</p>
+
+<p>
+  <strong>Ritual deity:</strong>
+  <%= @places_referenced.ritual_deity %>
+</p>
+
+<%= link_to 'Edit', edit_places_referenced_path(@places_referenced) %> |
+<%= link_to 'Back', places_referenceds_path %>

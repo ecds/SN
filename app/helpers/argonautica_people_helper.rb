@@ -1,0 +1,2 @@
+module ArgonauticaPeopleHelper
+end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type of stop:</strong>
+  <%= @stop.type_of_stop %>
+</p>
+
+<p>
+  <strong>Line number:</strong>
+  <%= @stop.line_number %>
+</p>
+
+<p>
+  <strong>Ritual:</strong>
+  <%= @stop.ritual %>
+</p>
+
+<p>
+  <strong>Ritual deity:</strong>
+  <%= @stop.ritual_deity %>
+</p>
+
+<%= link_to 'Edit', edit_stop_path(@stop) %> |
+<%= link_to 'Back', stops_path %>

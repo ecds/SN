@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @argonautica_person.name %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @argonautica_person.origin %>
+</p>
+
+<p>
+  <strong>Tribe:</strong>
+  <%= @argonautica_person.tribe %>
+</p>
+
+<%= link_to 'Edit', edit_argonautica_person_path(@argonautica_person) %> |
+<%= link_to 'Back', argonautica_people_path %>

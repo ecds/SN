@@ -1,0 +1,29 @@
+<%= form_for(@argonautica_person) do |f| %>
+  <% if @argonautica_person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@argonautica_person.errors.count, "error") %> prohibited this argonautica_person from being saved:</h2>
+
+      <ul>
+      <% @argonautica_person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :origin_id %><br>
+    <%= f.text_field :origin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tribe %><br>
+    <%= f.text_field :tribe %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

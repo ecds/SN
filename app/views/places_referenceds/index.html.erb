@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Places Referenceds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line number</th>
+      <th>Type of reference</th>
+      <th>Ritual</th>
+      <th>Ritual deity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @places_referenceds.each do |places_referenced| %>
+      <tr>
+        <td><%= places_referenced.line_number %></td>
+        <td><%= places_referenced.type_of_reference %></td>
+        <td><%= places_referenced.ritual %></td>
+        <td><%= places_referenced.ritual_deity %></td>
+        <td><%= link_to 'Show', places_referenced %></td>
+        <td><%= link_to 'Edit', edit_places_referenced_path(places_referenced) %></td>
+        <td><%= link_to 'Destroy', places_referenced, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Places referenced', new_places_referenced_path %>

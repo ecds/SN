@@ -1,0 +1,33 @@
+<%= form_for(@places_referenced) do |f| %>
+  <% if @places_referenced.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@places_referenced.errors.count, "error") %> prohibited this places_referenced from being saved:</h2>
+
+      <ul>
+      <% @places_referenced.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :line_number %><br>
+    <%= f.text_field :line_number %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_reference %><br>
+    <%= f.text_field :type_of_reference %>
+  </div>
+  <div class="field">
+    <%= f.label :ritual %><br>
+    <%= f.text_field :ritual %>
+  </div>
+  <div class="field">
+    <%= f.label :ritual_deity %><br>
+    <%= f.text_field :ritual_deity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
