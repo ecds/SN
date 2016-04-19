@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419155734) do
+ActiveRecord::Schema.define(version: 20160419171504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -211,11 +211,37 @@ ActiveRecord::Schema.define(version: 20160419155734) do
     t.string   "ritual_deity"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "crew_id"
+    t.integer  "ritual_people_id"
+    t.integer  "stops_people_id"
   end
 
+  add_index "stops", ["crew_id"], name: "index_stops_on_crew_id", using: :btree
   add_index "stops", ["next_place_id"], name: "index_stops_on_next_place_id", using: :btree
   add_index "stops", ["place_of_stop_id"], name: "index_stops_on_place_of_stop_id", using: :btree
   add_index "stops", ["previous_place_id"], name: "index_stops_on_previous_place_id", using: :btree
+  add_index "stops", ["ritual_people_id"], name: "index_stops_on_ritual_people_id", using: :btree
+  add_index "stops", ["stops_people_id"], name: "index_stops_on_stops_people_id", using: :btree
+
+  create_table "stops_people", force: :cascade do |t|
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "crew_id"
+    t.integer  "ritual_people_id"
+    t.integer  "argonautica_people_id"
+    t.integer  "stops_id"
+    t.integer  "argonautica_person_id"
+    t.integer  "stop_id"
+    t.integer  "ritual_person_id"
+  end
+
+  add_index "stops_people", ["argonautica_people_id"], name: "index_stops_people_on_argonautica_people_id", using: :btree
+  add_index "stops_people", ["argonautica_person_id"], name: "index_stops_people_on_argonautica_person_id", using: :btree
+  add_index "stops_people", ["crew_id"], name: "index_stops_people_on_crew_id", using: :btree
+  add_index "stops_people", ["ritual_people_id"], name: "index_stops_people_on_ritual_people_id", using: :btree
+  add_index "stops_people", ["ritual_person_id"], name: "index_stops_people_on_ritual_person_id", using: :btree
+  add_index "stops_people", ["stop_id"], name: "index_stops_people_on_stop_id", using: :btree
+  add_index "stops_people", ["stops_id"], name: "index_stops_people_on_stops_id", using: :btree
 
   add_foreign_key "argonautica_people", "sites", column: "origin_id"
   add_foreign_key "groupings", "inscriptions"

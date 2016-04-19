@@ -1,0 +1,2 @@
+module StopsPersonHelper
+end

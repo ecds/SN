@@ -1,0 +1,2 @@
+class StopsPeopleController < ApplicationController
+end
