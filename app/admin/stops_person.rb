@@ -1,5 +1,5 @@
 ActiveAdmin.register StopsPerson do
-    permit_params :id, :crew_id, :ritual_person_id, :argonautica_person_id, :stop_id
+    permit_params :id, :crew_id, :ritual_person_id, :argonautica_person_id, :stop_id, :places_referenced_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

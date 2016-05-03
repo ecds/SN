@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419171504) do
+ActiveRecord::Schema.define(version: 20160503173109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -233,11 +233,13 @@ ActiveRecord::Schema.define(version: 20160419171504) do
     t.integer  "argonautica_person_id"
     t.integer  "stop_id"
     t.integer  "ritual_person_id"
+    t.integer  "places_referenced_id"
   end
 
   add_index "stops_people", ["argonautica_people_id"], name: "index_stops_people_on_argonautica_people_id", using: :btree
   add_index "stops_people", ["argonautica_person_id"], name: "index_stops_people_on_argonautica_person_id", using: :btree
   add_index "stops_people", ["crew_id"], name: "index_stops_people_on_crew_id", using: :btree
+  add_index "stops_people", ["places_referenced_id"], name: "index_stops_people_on_places_referenced_id", using: :btree
   add_index "stops_people", ["ritual_people_id"], name: "index_stops_people_on_ritual_people_id", using: :btree
   add_index "stops_people", ["ritual_person_id"], name: "index_stops_people_on_ritual_person_id", using: :btree
   add_index "stops_people", ["stop_id"], name: "index_stops_people_on_stop_id", using: :btree
